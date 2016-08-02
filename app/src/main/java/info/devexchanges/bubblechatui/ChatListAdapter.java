@@ -1,5 +1,6 @@
 package info.devexchanges.bubblechatui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,17 +10,18 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ChatListAdapter extends ArrayAdapter<ChatMessage>{
+public class ChatListAdapter extends ArrayAdapter<ChatMessage> {
 
     private Activity activity;
     private ArrayList<ChatMessage> chatMessages;
 
     public ChatListAdapter(Activity context, int resource, ArrayList<ChatMessage> objects) {
         super(context, resource, objects);
-        this.activity =context;
+        this.activity = context;
         this.chatMessages = objects;
     }
 
+    @SuppressLint("ViewHolder")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
@@ -34,13 +36,9 @@ public class ChatListAdapter extends ArrayAdapter<ChatMessage>{
             layoutResource = R.layout.item_in;
         }
 
-        if (convertView != null) {
-            holder = (ViewHolder) convertView.getTag();
-        } else {
-            convertView = inflater.inflate(layoutResource, parent, false);
-            holder = new ViewHolder(convertView);
-            convertView.setTag(holder);
-        }
+        convertView = inflater.inflate(layoutResource, parent, false);
+        holder = new ViewHolder(convertView);
+        convertView.setTag(holder);
 
         //set message content
         holder.message.setText(chatMessage.getMessage());
@@ -65,7 +63,7 @@ public class ChatListAdapter extends ArrayAdapter<ChatMessage>{
         private TextView message;
 
         public ViewHolder(View v) {
-            message = (TextView)v.findViewById(R.id.text);
+            message = (TextView) v.findViewById(R.id.text);
         }
     }
 }

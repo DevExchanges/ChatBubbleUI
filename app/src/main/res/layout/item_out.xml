@@ -11,7 +11,7 @@
         android:padding="8dp"
         app:bl_arrowDirection="right"
         app:bl_arrowHeight="8dp"
-        app:bl_arrowPosition="50dp"
+        app:bl_arrowPosition="32dp"
         app:bl_arrowWidth="15dp"
         app:bl_bubbleColor="@android:color/holo_green_light"
         app:bl_cornersRadius="6dp">
@@ -25,7 +25,7 @@
                 android:contentDescription="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/in" />
 
             <TextView
                 android:id="@+id/text"
